@@ -1,0 +1,8 @@
+{
+  "name": "NICE LOOK BEAUTY THERAPIST",
+  "description": "Premium beauty therapist booking, client history, and product sales management with interactive analysis, scheduling, map markers, and reminders.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

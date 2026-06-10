@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Rose Gold & Champagne Orchid Blush palette definitions */
+  --color-natural-bg: var(--theme-sand, #FCF8F5);
+  --color-natural-sidebar: var(--theme-sand, #FAF1EC);
+  --color-natural-border: var(--theme-sand, #ECE0DA);
+  --color-natural-ink: var(--theme-ink, #2C2220);
+  --color-natural-sand: var(--theme-sand, #F7E4DE);
+  --color-natural-sage: var(--theme-sage, #9C5F6D);
+  --color-natural-terracotta: var(--theme-terracotta, #CD7F6D);
+
+  /* Beautiful direct intuitive names */
+  --color-sage: var(--theme-sage, #9C5F6D);
+  --color-terracotta: var(--theme-terracotta, #CD7F6D);
+  --color-sand: var(--theme-sand, #F7E4DE);
+  --color-ink: var(--theme-ink, #2C2220);
+
+  --color-sage-50: var(--theme-sage-50, #FCF5F6);
+  --color-sage-100: var(--theme-sage-100, #F6E7EA);
+  --color-sage-200: var(--theme-sage-200, #EDD0D5);
+  --color-sage-300: var(--theme-sage-300, #DEB4BD);
+  --color-sage-400: var(--theme-sage-400, #CF929F);
+  --color-sage-500: var(--theme-sage-500, #9C5F6D);
+  --color-sage-600: var(--theme-sage-600, #7E4653);
+  --color-sage-700: var(--theme-sage-700, #62303B);
+  --color-sage-800: var(--theme-sage-800, #491E26);
+  --color-sage-900: var(--theme-sage-900, #38131B);
+
+  --color-terracotta-50: var(--theme-terracotta-50, #FEF9F7);
+  --color-terracotta-100: var(--theme-terracotta-100, #FDF1EA);
+  --color-terracotta-200: var(--theme-terracotta-200, #FAE2D5);
+  --color-terracotta-300: var(--theme-terracotta-300, #F3C4AD);
+  --color-terracotta-400: var(--theme-terracotta-400, #E6A281);
+  --color-terracotta-500: var(--theme-terracotta-500, #CD7F6D);
+  --color-terracotta-600: var(--theme-terracotta-600, #B06351);
+  --color-terracotta-700: var(--theme-terracotta-700, #934937);
+  --color-terracotta-800: var(--theme-terracotta-800, #763323);
+  --color-terracotta-900: var(--theme-terracotta-900, #5D2418);
+}
+
+body {
+  background-color: var(--theme-sand, #FCF8F5);
+  color: var(--theme-ink, #2C2220);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Base custom interactive transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  transition-duration: 400ms;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- PREMIUM LUXURY DESIGN SYSTEM ANIMATIONS --- */
+
+/* 1. Glassmorphism effect with blur */
+.luxury-glass {
+  background-color: rgba(253, 252, 251, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(234, 226, 213, 0.75);
+}
+.dark .luxury-glass {
+  background-color: rgba(24, 22, 21, 0.75);
+  border-color: rgba(63, 55, 45, 0.4);
+}
+
+/* 2. Service cards lift upward with soft shadow increase */
+.luxury-card-lift {
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  border-radius: 1.5rem;
+}
+.luxury-card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -10px rgba(193, 127, 89, 0.12),
+              0 4px 12px -2px rgba(193, 127, 89, 0.04);
+  border-color: rgba(193, 127, 89, 0.35);
+}
+.dark .luxury-card-lift:hover {
+  box-shadow: 0 16px 36px -10px rgba(27, 24, 21, 0.8),
+              0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  border-color: rgba(193, 127, 89, 0.25);
+}
+
+/* 3. Images slow zoom in by 3-5% */
+.zoom-img-container {
+  position: relative;
+  overflow: hidden;
+}
+.zoom-img {
+  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.zoom-img-container:hover .zoom-img {
+  transform: scale(1.045); /* 4.5% zoom */
+}
+
+/* 4. Buttons smooth gold/terracotta glow and color transition */
+.luxury-btn-glow {
+  transition: background-color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+              color 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.luxury-btn-glow:hover {
+  transform: translateY(-0.5px);
+  box-shadow: 0 0 16px rgba(193, 127, 89, 0.35);
+}
+.dark .luxury-btn-glow:hover {
+  box-shadow: 0 0 20px rgba(193, 127, 89, 0.22);
+}
+
+/* 5. Icons animate subtly on card hover */
+.luxury-icon-bounce {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.group:hover .luxury-icon-bounce,
+.luxury-card-lift:hover .luxury-icon-bounce {
+  transform: scale(1.12) translateY(-2px);
+  color: #C17F59;
+}
+
+/* 6. Subtle shimmer/light sweep on premium card */
+.shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-sweep::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+.dark .shimmer-sweep::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.shimmer-sweep:hover::before {
+  left: 150%;
+}
+
+/* 7. Pricing cards scale gently */
+.pricing-card-scale {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.pricing-card-scale:hover {
+  transform: scale(1.018);
+  border-color: rgba(138, 154, 91, 0.35);
+  box-shadow: 0 12px 28px rgba(138, 154, 91, 0.05);
+}
+
+/* 8. Elegant active navigation underline animation */
+.luxury-link-underline {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.luxury-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background-color: #C17F59;
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+              left 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.luxury-link-underline:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Dark mode overrides for luxury rose-gold look */
+.dark body {
+  background-color: #141010;
+  color: #FAF6F5;
+}
