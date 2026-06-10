@@ -403,7 +403,7 @@ export default function App() {
                   : 'text-stone-600 hover:text-[#9C5F6D] font-normal hover:bg-[#FAF1EC]/50'
               }`}
             >
-              Therapist Room
+              Therapist Rooms
             </button>
             <button
               onClick={() => setActiveTab('dev_docs')}
